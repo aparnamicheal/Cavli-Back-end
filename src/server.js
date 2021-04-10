@@ -1,15 +1,6 @@
-var express = require('express');
- require('dotenv').config()
- var app = express();
- var bodyParser = require('body-parser')
- app.use(bodyParser.urlencoded({ extended: false }))
- app.use(bodyParser.json())
- app.get('/test', function (req, res) {
-    res.send(`${process.env.DB_USER} : ${req.body.u}`);
- })
- var port = process.env.PORT || 8081;
- var server = app.listen(port, function () {
-    var host = server.address().address
-    
-    console.log("Example app listening started http://%s:%s", host, port)
+const App = require('./App');
+const app= new App();
+const port = process.env.PORT || 8081;
+app.express.listen(port, function () {
+    console.log("Example app listening at %s", port)
  })
