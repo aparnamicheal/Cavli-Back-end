@@ -27,10 +27,13 @@ class App{
         {
             res.send(`${process.env.DB_USER} : ${req.body.u}`);
          });
-        
+
+
         this.express.get('/getSignedUrl',s3Service.getSignedUrl) // set route, objectname.method
         this.express.get('/getfileUrl',fileServices.getfileUrl)
         this.express.get('/savefile',fileServices.saveFile)
+        this.express.get('/deletefile',fileServices.deleteFile)
+        this.express.get('/getallfiles',fileServices.getAllFiles)
         
     }
 }
